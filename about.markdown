@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-Here’s an updated version that emphasizes your leadership experience while keeping it concise:
-
 ## Dr. Richard Kang
 
 Hi, I'm Richard Kang, a **Customer-Focused Technology Leader** specializing in **Cloud Computing** and **Digital Transformation**. With extensive experience in **AWS** and **edge computing**, I help organizations innovate and scale by leveraging cloud technologies. I’ve led **cross-functional teams** in complex cloud migrations, system modernizations, and have driven initiatives that align technology with strategic business goals. My leadership is defined by a **customer-first approach**, ensuring both technical excellence and successful outcomes for clients.
