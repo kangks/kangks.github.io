@@ -1,13 +1,3 @@
---- 
-title: "Integrating Google Workspace as an External Identity Provider for AWS IAM Identity Center"
-status: publish
-layout: post
-published: true
-tags: 
-- aws
-excerpt: Use case of AWS IAM Identity Center and integrate with Google Workspace
-----
-
 ## Table of Contents
 
   - [Overview of Centralized Identity Store Integration](#overview-of-centralized-identity-store-integration)
