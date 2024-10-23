@@ -1,6 +1,6 @@
 --- 
 title: "Integrating Google Workspace as an External Identity Provider for AWS IAM Identity Center"
-tagline: ""Integrate Google Workspace with AWS IAM Identity Center for Seamless Single Sign-On and User Provisioning"
+tagline: "Integrate Google Workspace with AWS IAM Identity Center for Seamless Single Sign-On and User Provisioning"
 description: "Learn how to configure Google Workspace as an external identity provider for AWS IAM Identity Center. This step-by-step guide covers SAML setup, automatic user provisioning, and centralized identity management to enhance security and streamline access control for AWS resources."
 social:
   name: Dr Richard Kang
