@@ -1,4 +1,6 @@
-# Configure IAM Identity Center as SAML for external AWS account
+--- 
+title: "Configure IAM Identity Center as SAML for external AWS account"
+---
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -173,4 +175,6 @@ Where:
 4. Selecting the application will grant the user access to the external AWS account, showing the external AWS account and the role name mapped in the attribute.
 ![AWS Access Portal > External AWS Account](/assets/images/2024-10-03-AWS-IAM-Identity-Center/federated_access_external_aws_account.png)
 
+## Access keys from the SSO
 
+**Description**: 

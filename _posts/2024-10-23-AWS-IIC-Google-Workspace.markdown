@@ -4,20 +4,20 @@ title: "Integrating Google Workspace as an External Identity Provider for AWS IA
 
 ## Table of Contents
 
-  - [Overview of Centralized Identity Store Integration](#overview-of-centralized-identity-store-integration)
-    - [The Importance of Centralized Identity Management](#the-importance-of-centralized-identity-management)
-    - [Use Case: Mitigating Offboarding Risks](#use-case-mitigating-offboarding-risks)
-    - [AWS IAM Identity Center](#aws-iam-identity-center)
-  - [Step-by-Step](#step-by-step)
-    - [Step 1: Google Workspace: Configure the SAML application](#step-1-google-workspace-configure-the-saml-application)
-    - [Step 2: Change and setup Google Workspace as an SAML identity provider](#step-2-change-and-setup-google-workspace-as-an-saml-identity-provider)
-      - [AWS Console: Configure the IdP SAML in AWS IAM Identity Center](#aws-console-configure-the-idp-saml-in-aws-iam-identity-center)
-      - [Google Admin page: Configure the Service Provider details](#google-admin-page-configure-the-service-provider-details)
-      - [Google Admin page: Configure the Attribute Mapping](#google-admin-page-configure-the-attribute-mapping)
-      - [AWS Console: Review and confirm the use of external identity provider](#aws-console-review-and-confirm-the-use-of-external-identity-provider)
-    - [Step 3: Google Admin: Enable the apps](#step-3-google-admin-enable-the-apps)
-    - [Step 4: Set up IAM Identity Center automatic provisioning](#step-4-set-up-iam-identity-center-automatic-provisioning)
-  - [Next step](#next-step)
+- [Overview of Centralized Identity Store Integration](#overview-of-centralized-identity-store-integration)
+- [The Importance of Centralized Identity Management](#the-importance-of-centralized-identity-management)
+- [Use Case: Mitigating Offboarding Risks](#use-case-mitigating-offboarding-risks)
+- [AWS IAM Identity Center](#aws-iam-identity-center)
+- [Step-by-Step](#step-by-step)
+- [Step 1: Google Workspace: Configure the SAML application](#step-1-google-workspace-configure-the-saml-application)
+- [Step 2: Change and setup Google Workspace as an SAML identity provider](#step-2-change-and-setup-google-workspace-as-an-saml-identity-provider)
+    - [AWS Console: Configure the IdP SAML in AWS IAM Identity Center](#aws-console-configure-the-idp-saml-in-aws-iam-identity-center)
+    - [Google Admin page: Configure the Service Provider details](#google-admin-page-configure-the-service-provider-details)
+    - [Google Admin page: Configure the Attribute Mapping](#google-admin-page-configure-the-attribute-mapping)
+    - [AWS Console: Review and confirm the use of external identity provider](#aws-console-review-and-confirm-the-use-of-external-identity-provider)
+- [Step 3: Google Admin: Enable the apps](#step-3-google-admin-enable-the-apps)
+- [Step 4: Set up IAM Identity Center automatic provisioning](#step-4-set-up-iam-identity-center-automatic-provisioning)
+- [Next step](#next-step)
 
 ### Overview of Centralized Identity Store Integration
 
