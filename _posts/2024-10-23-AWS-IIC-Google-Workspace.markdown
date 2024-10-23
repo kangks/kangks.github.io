@@ -17,7 +17,6 @@
     - [Step 3: Google Admin: Enable the apps](#step-3-google-admin-enable-the-apps)
     - [Step 4: Set up IAM Identity Center automatic provisioning](#step-4-set-up-iam-identity-center-automatic-provisioning)
   - [Next step](#next-step)
-  - [References](#references)
 
 ### Overview of Centralized Identity Store Integration
 
@@ -36,6 +35,8 @@ AWS IAM Identity Center provides a default identity directory for managing AWS a
 ## Step-by-Step
 
 _Tips: Having two windows side by side, windows #1 on Google Workspace, windows #2 on the AWS IAM Identity Center, will be helpful in this step-by-step guides._
+
+> This step-by-step guide augmented with screenshots and grouping by AWS Console and Google Admin for better clarity. The original documentation on AWS can be found [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/gs-gwp.html).
 
 ![Side-by-Side](/assets/images/2024-10-23-AWS-IIC-Google-Workspace/Google_Admin_-_AWS_-_side-by-side.png)
 
@@ -142,7 +143,4 @@ Keep this page of Google admin open, and open another windows for AWS IAM Identi
 
 ## Next step
 
-1. Follow the steps in [Assign users or user groups to the application](https://kangks.github.io/2024/10/03/AWS-IAM-Identity-Center.html#step-5-assign-users-or-user-groups-to-the-application) to assign access to the users
-
-## References
-* [Configure SAML and SCIM with Google Workspace and IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/gs-gwp.html)
+1. Follow the steps in [Assign users or user groups to the application](https://kangks.github.io/2024/10/03/AWS-IAM-Identity-Center.html#step-5-assign-users-or-user-groups-to-the-application) to assign access to the users.
