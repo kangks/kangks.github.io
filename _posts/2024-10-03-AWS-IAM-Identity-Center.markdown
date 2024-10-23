@@ -1,5 +1,9 @@
 --- 
 title: "Configure IAM Identity Center as SAML for external AWS account"
+social:
+  name: Dr Richard Kang
+  links:
+    - https://www.linkedin.com/in/kangks/
 ---
 
 ## Table of Contents
