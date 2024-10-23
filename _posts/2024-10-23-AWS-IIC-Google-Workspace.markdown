@@ -1,4 +1,25 @@
-## Integrating Google Workspace as an External Identity Provider for AWS IAM Identity Center
+# Integrating Google Workspace as an External Identity Provider for AWS IAM Identity Center
+
+## Table of Contents
+
+- [Integrating Google Workspace as an External Identity Provider for AWS IAM Identity Center](#integrating-google-workspace-as-an-external-identity-provider-for-aws-iam-identity-center)
+  - [Overview of Centralized Identity Store Integration](#overview-of-centralized-identity-store-integration)
+    - [The Importance of Centralized Identity Management](#the-importance-of-centralized-identity-management)
+    - [Use Case: Mitigating Offboarding Risks](#use-case-mitigating-offboarding-risks)
+    - [AWS IAM Identity Center](#aws-iam-identity-center)
+  - [Step-by-Step](#step-by-step)
+    - [Step 1: Google Workspace: Configure the SAML application](#step-1-google-workspace-configure-the-saml-application)
+    - [Step 2: Change and setup Google Workspace as an SAML identity provider](#step-2-change-and-setup-google-workspace-as-an-saml-identity-provider)
+      - [AWS Console: Configure the IdP SAML in AWS IAM Identity Center](#aws-console-configure-the-idp-saml-in-aws-iam-identity-center)
+      - [Google Admin page: Configure the Service Provider details](#google-admin-page-configure-the-service-provider-details)
+      - [Google Admin page: Configure the Attribute Mapping](#google-admin-page-configure-the-attribute-mapping)
+      - [AWS Console: Review and confirm the use of external identity provider](#aws-console-review-and-confirm-the-use-of-external-identity-provider)
+    - [Step 3: Google Admin: Enable the apps](#step-3-google-admin-enable-the-apps)
+    - [Step 4: Set up IAM Identity Center automatic provisioning](#step-4-set-up-iam-identity-center-automatic-provisioning)
+  - [Next step](#next-step)
+  - [References](#references)
+
+### Overview of Centralized Identity Store Integration
 
 **The Importance of Centralized Identity Management**
 
@@ -8,7 +29,7 @@ In today’s distributed environments, managing identities across platforms is c
 
 Without a centralized system, offboarding employees becomes a security liability as access may remain active across multiple platforms. By using a centralized identity store, access can be revoked instantly across all services, reducing the risk of security breaches.
 
-### Overview of Centralized Identity Store Integration
+**AWS IAM Identity Center**
 
 AWS IAM Identity Center provides a default identity directory for managing AWS access, but many organizations use external providers like Google Workspace, Okta, or Microsoft Azure AD. IAM Identity Center supports these [integrations](https://docs.aws.amazon.com/singlesignon/latest/userguide/tutorials.html), enabling organizations to centralize identity management while providing seamless Single Sign-On (SSO) for AWS resources. Through this integration, administrators can automate user provisioning using SCIM and manage access in one place, enhancing security and efficiency.
 
