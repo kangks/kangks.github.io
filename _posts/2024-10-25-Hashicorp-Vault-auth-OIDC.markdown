@@ -1,7 +1,5 @@
 --- 
 title: "Configuring Google Workspace as an OIDC identity provider"
-tagline: "Secure HashiCorp Vault Access with Google Workspace OIDC Integration: A Step-by-Step Guide""
-description: "Learn how to configure Google Workspace as an OpenID Connect (OIDC) provider for HashiCorp Vault, enhancing authentication security, simplifying access management, and ensuring compliance. This detailed guide covers OAuth setup, Vault server configuration, and OIDC role creation for secure, streamlined access to your organization’s critical secrets."
 social:
   name: Dr Richard Kang
   links:
