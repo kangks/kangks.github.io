@@ -103,7 +103,7 @@ The [GitHub repository](https://github.com/kangks/amazon-bedrock-computer-use) s
    ```
 2. Navigate to the project directory and build the Docker image:
    ```bash
-   docker build -t anthropic-computer-use .
+   docker build -t amazon-bedrock-computer-use .
    ```
 3. Refer to the [README](https://github.com/kangks/amazon-bedrock-computer-use/blob/main/README.md) for example of prompts
 
