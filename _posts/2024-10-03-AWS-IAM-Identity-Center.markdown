@@ -6,15 +6,16 @@ social:
     - https://www.linkedin.com/in/kangks/
 ---
 
-## Table of Contents
-1. [Overview](#overview)
-2. [Benefits of AWS IAM Identity Center](#benefits-of-aws-iam-identity-center)
-3. [Step 1: Configure the AWS IAM Identity Center](#step-1-configure-the-aws-iam-identity-center)
-4. [Step 2: Add an External AWS Account as an Application](#step-2-add-an-external-aws-account-as-an-application)
-5. [Step 3: Create a SAML Identity Provider in External AWS Account](#step-3-create-a-saml-identity-provider-in-external-aws-account)
-6. [Step 4: Configure Access Details of the IAM Role in the Identity Center](#step-4-configure-access-details-of-the-iam-role-in-the-identity-center)
-7. [Step 5: Assign Users or User Groups to the Application](#step-5-assign-users-or-user-groups-to-the-application)
-8. [Step 6: Verify](#step-6-verify)
+- [Overview](#overview)
+- [Benefits of AWS IAM Identity Center](#benefits-of-aws-iam-identity-center)
+- [Step 1: Configure the AWS IAM Identity Center](#step-1-configure-the-aws-iam-identity-center)
+- [Step 2: Add an external AWS account as an application](#step-2-add-an-external-aws-account-as-an-application)
+- [Step 3: Create a SAML Identity Provider in external AWS account](#step-3-create-a-saml-identity-provider-in-external-aws-account)
+- [Step 4: Configure access details of the IAM role in the Identity Center](#step-4-configure-access-details-of-the-iam-role-in-the-identity-center)
+- [Step 5: Assign users or user groups to the application](#step-5-assign-users-or-user-groups-to-the-application)
+- [Step 6: Verify](#step-6-verify)
+- [Access keys from the SSO](#access-keys-from-the-sso)
+
 
 ## Overview
 
