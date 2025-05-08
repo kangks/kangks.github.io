@@ -185,38 +185,35 @@ Where:
 
 1. Open a terminal, and enter command `aws configure sso`
 2. Update the required parameters, such as
-```
-% aws configure sso
-SSO session name (Recommended): My-SSO
-SSO start URL [None]: https://<The SSO sign-in URL>.awsapps.com/start/#/
-SSO region [None]: <Region of the IAM Identity Cener>
-SSO registration scopes [sso:account:access]:
-Attempting to automatically open the SSO authorization page in your default browser.
-If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
+    ```
+    % aws configure sso
+    SSO session name (Recommended): My-SSO
+    SSO start URL [None]: https://<The SSO sign-in URL>.awsapps.com/start/#/
+    SSO region [None]: <Region of the IAM Identity Cener>
+    SSO registration scopes [sso:account:access]:
+    Attempting to automatically open the SSO authorization page in your default browser.
+    If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
 
-https://<The SSO sign-in URL.awsapps.com/start/#/device
+    https://<The SSO sign-in URL>.awsapps.com/start/#/device
 
-Then enter the code:
+    Then enter the code:
 
-DCLD-####
-```
-
+    DCLD-####
+    ```
 3. A browser will be opened up for you to login
-![AWS Access Portal > External AWS Account](/assets/images/2024-10-03-AWS-IAM-Identity-Center/aws_sso_authorization.png)
+   ![AWS Access Portal > External AWS Account](/assets/images/2024-10-03-AWS-IAM-Identity-Center/aws_sso_authorization.png)
+4. Once SSO has been configure, 
+    ```
+    The only AWS account available to you is: <AWS Accounts that granted access>
+    Using the account ID <a default AWS account>
+    The only role available to you is: AdministratorAccess
+    Using the role name "AdministratorAccess"
+    CLI default client Region [None]:
+    CLI default output format [None]:
+    CLI profile name [AdministratorAccess-<AWS Accounts that granted access>]: SSO-access
 
-4. Successfully authenticated
+    To use this profile, specify the profile name using --profile, as shown:
 
-```
-The only AWS account available to you is: <AWS Accounts that granted access>
-Using the account ID <a default AWS account>
-The only role available to you is: AdministratorAccess
-Using the role name "AdministratorAccess"
-CLI default client Region [None]:
-CLI default output format [None]:
-CLI profile name [AdministratorAccess-<AWS Accounts that granted access>]: SSO-access
+    aws s3 ls --profile SSO-access
 
-To use this profile, specify the profile name using --profile, as shown:
-
-aws s3 ls --profile SSO-access
-
-```
+    ```
