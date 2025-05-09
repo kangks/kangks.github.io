@@ -15,6 +15,7 @@ social:
 - [Step 5: Assign users or user groups to the application](#step-5-assign-users-or-user-groups-to-the-application)
 - [Step 6: Verify](#step-6-verify)
 - [Access keys from the SSO](#access-keys-from-the-sso)
+- [Gets the IAM Role ARN to be used in EKS aws-auth](#gets-the-iam-role-arn-to-be-used-in-eks-aws-auth)
 
 
 ## Overview
@@ -217,4 +218,34 @@ Where:
 
     aws s3 ls --profile SSO-access
 
+    ```
+5. In subsequent session, login via SSO with the command `aws sso login --profile <SSO Profile>`
+    ```
+    $ aws sso login --profile SSO-access
+    Attempting to automatically open the SSO authorization page in your default browser.
+    If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
+
+    https://<SSO URL>.awsapps.com/start/#/device
+
+    Then enter the code:
+
+    KPJX-####
+    ```
+
+## Gets the IAM Role ARN to be used in EKS aws-auth
+
+1. If you need to add the full ARN to the aws-auth ConfigMap, first get the STS ARN, such as:
+    ```
+    % aws sts get-caller-identity --profile SSO-access
+    {
+        "UserId": "<SSO User ID>",
+        "Account": "<AWS Account ID>",
+        "Arn": "arn:aws:sts::<AWS Account ID>:assumed-role/<AWS IAM Role ARN>/<SSO User ID>"
+    }
+    ```
+2. `aws-auth` requires the IAM role arn, which can be obtain by removing the path:
+    ```
+    % echo "arn:aws:iam::$(aws sts get-caller-identity --query Account --output text --profile SSO-access):role/$(aws sts get-caller-identity --query Arn --output text --profile SSO-access | cut -d/ -f2)"
+
+    arn:aws:iam::<AWS Account ID>:role/<AWS IAM Role ARN>
     ```
