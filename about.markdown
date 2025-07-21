@@ -6,14 +6,27 @@ permalink: /about/
 
 ## Dr. Richard Kang
 
-Hi, I'm Richard Kang, a **Customer-Focused Technology Leader** specializing in **Cloud Computing** and **Digital Transformation**. With extensive experience in **AWS** and **edge computing**, I help organizations innovate and scale by leveraging cloud technologies. I’ve led **cross-functional teams** in complex cloud migrations, system modernizations, and have driven initiatives that align technology with strategic business goals. My leadership is defined by a **customer-first approach**, ensuring both technical excellence and successful outcomes for clients.
+Hi, I’m **Dr. Richard Kang**, based in **Singapore**, and currently leading the **Engineering Team at DoiT International**. With over 25 years of experience in **Cloud Computing** and **Digital Transformation**, I drive measurable business impact by architecting scalable AWS-based solutions. I focus on aligning technology with tangible KPIs to help organizations innovate faster, reduce cost, and improve efficiency.
 
-### Career Highlights
+### 🌐 Business Impact Highlights
 
-- **Cloud Leadership**: Led cloud transformation and migration programs for global enterprises, driving successful outcomes that enhance scalability, performance, and security.
-- **Strategic Cloud Adoption**: Spearheaded initiatives that introduced cutting-edge cloud technologies, optimizing cost and improving resilience for various industries.
-- **Cross-Functional Team Leadership**: Managed and mentored diverse, multi-disciplinary teams, guiding them through complex projects involving **cloud architecture**, **DevOps**, and **machine learning**, while ensuring a customer-centric focus.
+- **Leading Engineering in Singapore** – Oversee a multi-disciplinary team delivering cloud-native platforms and FinOps solutions on AWS, enabling clients to manage costs effectively and accelerate time-to-market.
+- **AWS Ambassador** – As an [AWS Ambassador](https://aws.amazon.com/partners/ambassadors/?cards-body.sort-by=item.additionalFields.createDate&cards-body.sort-order=desc&awsf.apn-ambassadors-location=*all&cards-body.q=richard&cards-body.q_operator=AND&ref=kangks.github.io), I drive DoiT International’s AWS excellence by:
+  - **Elevating AWS proficiency**: Championing best practices, architecture guidance, and certification pathways internally—accelerating our team’s ability to deliver measurable customer value.
+  - **Amplifying market presence**: Representing DoiT as a trusted AWS expert in the AWS Ambassador community—publishing thought leadership and participating in global APN events, which strengthens our brand and competitive positioning.
+  - **Accelerating customer success**: Translating deep AWS expertise into real-world outcomes—ensuring our clients benefit from enhanced security, optimized costs, and faster deployment cycles.
+- **Stanford GSB Executive Alumnus** – Combining engineering depth with strategic business acumen enables me to design cloud solutions that support growth, compliance, and ROI.
+- **Global Network** – Connects with 500+ global professionals, creating opportunities for collaboration, partnerships, and shared innovation.
 
-### Let's Connect
+### 📈 Core Strengths
 
-[Connect with me on LinkedIn](https://www.linkedin.com/in/kangks/) to explore how we can collaborate on cloud transformation projects or discuss strategies for leveraging cloud-native technologies to drive business growth.
+1. **Cloud Transformation** – Architected enterprise-scale migrations and modernization programs that increased scalability and performance while reducing TCO.
+2. **FinOps & Cost Engineering** – Built cost-awareness platforms that help customers optimize spend with tools like FinOps dashboards and spot scaling.
+3. **Security & Compliance** – Implemented robust AWS security frameworks, including IAM centralization and network isolation.
+4. **Cross-Functional Leadership** – Led teams across DevOps, ML, edge computing, cloud architecture, and security, driving efficiency and alignment with business goals.
+
+### 🤝 Let’s Connect
+
+Whether you're interested in cloud strategy, cost optimization, or innovation in edge computing, let’s connect:
+
+[Connect with me on LinkedIn →](https://www.linkedin.com/in/kangks/)
