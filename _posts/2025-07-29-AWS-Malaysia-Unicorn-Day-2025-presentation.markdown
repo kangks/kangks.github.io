@@ -1,3 +1,11 @@
+--- 
+title: "AWS Malaysia Unicorn Day 2025"
+social:
+  name: Dr Richard Kang
+  links:
+    - https://www.linkedin.com/in/kangks/
+---
+
 # My Reflections: Accelerating GenAI Adoption - From Idea to Impact
 
 I recently had the privilege of presenting at [Unicorn Malaysia 2025](https://pages.awscloud.com/aws-unicorn-day-my.html), where I shared my perspective on how businesses can turn Generative AI’s potential into production-ready success, supported by real-world examples from our work at [DoiT International](https://doit.com).  
