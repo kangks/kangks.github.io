@@ -11,7 +11,7 @@ Hi, I’m **Dr. Richard Kang**, based in **Singapore**, and currently leading th
 ### 🌐 Business Impact Highlights
 
 - **Leading Engineering in Singapore** – Oversee a multi-disciplinary team delivering cloud-native platforms and FinOps solutions on AWS, enabling clients to manage costs effectively and accelerate time-to-market.
-- **AWS Ambassador** – As an [AWS Ambassador](https://aws.amazon.com/partners/ambassadors/?cards-body.sort-by=item.additionalFields.createDate&cards-body.sort-order=desc&awsf.apn-ambassadors-location=*all&cards-body.q=richard&cards-body.q_operator=AND&ref=kangks.github.io), I drive DoiT International’s AWS excellence by:
+- **AWS Ambassador** – As an [AWS Ambassador](https://aws.amazon.com/partners/ambassadors/?cards-body.sort-by=item.additionalFields.createDate&cards-body.sort-order=desc&awsf.apn-ambassadors-location=*all&cards-body.q=javier&cards-body.q_operator=AND&ref=javierinthecloud.com&ams%23interactive-card-vertical%23pattern-data-1736951101.filter=%257B%2522search%2522%253A%2522Richard%2520Kang%2522%257D), I drive DoiT International’s AWS excellence by:
   - **Elevating AWS proficiency**: Championing best practices, architecture guidance, and certification pathways internally—accelerating our team’s ability to deliver measurable customer value.
   - **Amplifying market presence**: Representing DoiT as a trusted AWS expert in the AWS Ambassador community—publishing thought leadership and participating in global APN events, which strengthens our brand and competitive positioning.
   - **Accelerating customer success**: Translating deep AWS expertise into real-world outcomes—ensuring our clients benefit from enhanced security, optimized costs, and faster deployment cycles.
