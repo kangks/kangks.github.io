@@ -6,7 +6,7 @@ permalink: /about/
 
 ## Dr. Richard Kang
 
-Hi, I’m **Dr. Richard Kang**, based in **Singapore**, and currently leading the **Engineering Team at DoiT International**. With over 25 years of experience in **Cloud Computing** and **Digital Transformation**, I drive measurable business impact by architecting scalable AWS-based solutions. I focus on aligning technology with tangible KPIs to help organizations innovate faster, reduce cost, and improve efficiency.
+Hi, I’m **Dr. Richard Kang**, based in **Singapore**, and currently leading **APJ Field Engineering at DoiT International**. With over 25 years of experience in **Engineering** and **Organizational Innovation Transformation**, I am deeply passionate about enabling organizations to transform through innovation. By architecting scalable AWS-based solutions and aligning technology with clear business KPIs, I help organizations accelerate innovation, optimize costs, and improve operational efficiency.
 
 ### 🌐 Business Impact Highlights
 

@@ -31,7 +31,13 @@ The most critical variable in this equation is the "Total Run Cost." In agentic 
 
 ## The Theory of Agentic Waste: Understanding the Taxes on Velocity
 
-Synthesising data from across the industry, we find that approximately 70% of tokens consumed by agents in the field are classified as waste. This waste acts as a direct tax on your development velocity. To optimise your engineering spend, you must understand three core concepts:
+Synthesising data from across the industry, approximately 70% of tokens consumed by agents in the field are classified as waste, which can be broken down into these technical drivers:
+
+* File Reading and Code Search (35–45% of tokens): Agents frequently read entire files simply to locate a single function or explored irrelevant code paths
+* Tool and Command Output (15–25% of tokens): Agents continually resent verbose command line interface (CLI) outputs, test results, and error logs in every turn, generating massive amounts of noise
+* Context Re-sending (15–20% of tokens): Because the full conversation history is resent with every API call, token consumption compounds linearly and rapidly inflates the cost of each subsequent interaction
+
+This waste acts as a direct tax on your development velocity. To optimise your engineering spend, you must understand three core concepts:
 
 ### The Unreliability Tax
 
@@ -137,8 +143,6 @@ When reviewing your dashboards, look for the two bimodal regimes:
 
 1. The Instant Merge Regime: Exactly 28.3% of agent PRs are merged in under a minute. These are narrow-scope, low-risk tasks where the agent succeeds instantly.
 2. The Iterative Loop Regime: PRs that require back-and-forth refinement. This is where "Ghosting"—agent abandonment—often occurs.
-
-The data shows a striking disparity in reliability: OpenAI Codex exhibits a 10.0% ghosting rate compared to Devin’s 0.9%. This proves that while agents are becoming more resilient, the "Iterative Loop" remains the primary area of economic risk.
 
 ## Actionable Advice for Engineering Leaders
 
