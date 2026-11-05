@@ -1,7 +1,7 @@
 ---
-title: "Claude Code on Amazon Bedrock through AWS Verified Access"
+title: "A ZTNA Pattern for Private Developer Tools: Claude Code on Amazon Bedrock"
 description: >-
-  A tested guide to connecting Claude Code to a private Claude Apps Gateway and Amazon Bedrock through AWS Verified Access and the Connectivity Client.
+  A tested, client-based AWS Verified Access ZTNA pattern for reaching a private Claude Apps Gateway from Claude Code and routing inference to Amazon Bedrock.
 social:
   name: Dr Richard Kang
   links:
@@ -10,19 +10,23 @@ social:
 
 ## Overview
 
-Claude Code can use an organization-managed Claude Apps Gateway that routes requests to Amazon Bedrock. Keeping that gateway private is attractive: the gateway can apply identity and model policy, the workload can use an AWS task role for Bedrock, and the ALB does not need to be internet-facing.
+Zero trust network access (ZTNA) gives a user access to a specific application after an identity and access policy check, without placing the user's device on the whole private network. AWS Verified Access is AWS's identity-aware access service for private applications.
 
-The difficulty is the developer’s path to that private gateway. A laptop on the public internet has no route to a VPC address. This proof of concept uses AWS Verified Access plus its Connectivity Client and a local TCP relay to reach the internal gateway.
+This post applies that pattern to a developer tool: Claude Code connects to an organization-managed Claude Apps Gateway, which routes inference requests to Amazon Bedrock. The gateway stays behind an internal Application Load Balancer (ALB), Verified Access checks the developer's identity, and the gateway uses its ECS task role to call Bedrock. No Bedrock credentials need to live on the developer's laptop.
 
-The working proof of concept used AWS Verified Access’s Connectivity Client and a small local TCP relay. The relay made Claude Code see a loopback address while the encrypted connection traveled through Verified Access to an internal ALB. This avoided a broad, manually managed VPN, but it still required an installed client and local relay.
+The working path in this example uses a Verified Access TCP CIDR endpoint, the AWS Connectivity Client, and a small local TCP relay. A temporary hosts entry makes Claude Code connect to loopback; the relay forwards the encrypted TLS stream through the client tunnel to the private ALB. This avoids giving the developer broad access to the VPC, while still requiring client software and a local relay.
+
+> **Scope**
+>
+> This is a client-based ZTNA example, not a clientless HTTPS setup. An earlier attempt to use the clientless HTTPS load-balancer endpoint did not produce a working Claude Code connection. This post validates only the TCP CIDR endpoint with the AWS Connectivity Client; the loopback relay adapts that path to Claude Code's gateway hostname behavior.
 
 ## Table of contents
 
 - [Overview](#overview)
 - [Test results and scope](#test-results-and-scope)
-- [Architecture](#architecture)
-- [Why use this design](#why-use-this-design)
-- [Step-by-step: reproduce the working TCP path](#step-by-step-reproduce-the-working-tcp-path)
+- [ZTNA architecture](#ztna-architecture-identity-gated-access-to-a-private-developer-service)
+- [How the example applies ZTNA](#how-the-example-applies-ztna)
+- [Reproduce the ZTNA example](#reproduce-the-ztna-example-tcp-through-the-connectivity-client)
   - [1. Prepare the AWS environment](#1-prepare-the-aws-environment)
   - [2. Choose a hostname and issue a certificate](#2-choose-a-hostname-and-issue-a-certificate)
   - [3. Create the temporary Cognito OIDC identity provider](#3-create-the-temporary-cognito-oidc-identity-provider)
@@ -56,27 +60,27 @@ The working proof of concept used AWS Verified Access’s Connectivity Client an
 
 *Figure 4. Sanitized rendering of the CLI `/status` screen showing version 2.1.318 and the Cloud gateway provider. Session identifiers, peer address, personal hostname, and local paths are omitted. This verifies gateway configuration, not an inference request.*
 
-## Architecture
+## ZTNA architecture: identity-gated access to a private developer service
 
-The diagram below shows the **passing TCP + Connectivity Client setup**. The ALB's HTTPS port 443 is reached through the Verified Access TCP endpoint and local relay.
+The diagram shows the passing implementation. Verified Access applies the identity policy to access through its TCP endpoint. The endpoint's security group is the only inbound source allowed by the private ALB, while the gateway uses its AWS task role for Bedrock.
 
-![Architecture: Claude Code reaches a private Claude Apps Gateway through a local relay, the AWS Connectivity Client, AWS Verified Access, and an internal ALB; the gateway calls Amazon Bedrock and PostgreSQL.](/assets/images/2026-11-05-Claude-Code-Bedrock-Verified-Access/architecture.svg)
+![Architecture: Claude Code reaches a private Claude Apps Gateway through a local relay and AWS Connectivity Client. Cognito OIDC identity claims are evaluated by the AWS Verified Access Cedar policy before traffic reaches the internal ALB; the gateway calls Amazon Bedrock and PostgreSQL.](/assets/images/2026-11-05-Claude-Code-Bedrock-Verified-Access/architecture.svg)
 
-In the successful test, the developer-facing hostname resolved to `127.0.0.1` because of a temporary `/etc/hosts` entry. A raw TCP relay listened on loopback port `8443` and forwarded the TLS stream to a per-target DNS name returned by a Verified Access CIDR endpoint on port `443`. The relay did not terminate TLS, so Claude Code’s hostname and SNI remained intact.
+In the successful test, the developer-facing hostname resolved to `127.0.0.1` because of a temporary `/etc/hosts` entry. A raw TCP relay listened on loopback port `8443` and forwarded the TLS stream to a per-target DNS name returned by a Verified Access CIDR endpoint on port `443`. The relay did not terminate TLS, so Claude Code's hostname and SNI remained intact.
 
-The Gateway ALB stayed private in VPC `10.20.0.0/16`. Its security group admitted HTTPS only from the Verified Access endpoint security group. ECS tasks used their task role and a Bedrock VPC endpoint to call Bedrock. The AWS Connectivity Client routed the Verified Access service prefix through its encrypted tunnel; the Mac did not receive a direct route to the VPC’s `10.20.x.x` addresses.
+The Gateway ALB stayed private in VPC `10.20.0.0/16`. Its security group admitted HTTPS only from the Verified Access endpoint security group. ECS tasks used their task role and a Bedrock VPC endpoint to call Bedrock. The AWS Connectivity Client routed the Verified Access service prefix through its encrypted tunnel; the Mac did not receive a direct route to the VPC's `10.20.x.x` addresses.
 
-## Why use this design
+## How the example applies ZTNA
 
-- Keep Claude Apps Gateway behind an internal ALB.
-- Use Verified Access identity policy to decide which users can reach the application.
-- Keep Bedrock credentials in the ECS task role instead of on developer laptops.
-- Route the Verified Access service prefix through the Connectivity Client instead of adding a direct route to the VPC subnets. This PoC did not verify per-application routing.
-- Preserve Claude Code’s private-address check by resolving its configured hostname to loopback before the relay forwards traffic.
+- **Access is identity-gated.** A Cognito OIDC trust provider supplies the developer identity, and the Verified Access group policy permits the test user's email.
+- **The private service has a narrow network boundary.** The internal ALB accepts HTTPS from the Verified Access endpoint security group; it is not opened to the internet or to a broad client CIDR.
+- **The developer receives application access, not a VPC route.** The client carries traffic to the Verified Access service prefix through its encrypted tunnel. This test did not establish direct reachability to VPC subnets or verify per-application routes.
+- **The workload has its own cloud identity.** The ECS task role authorizes Bedrock calls, keeping those AWS permissions off the developer device.
+- **The local relay is an application compatibility adapter.** It preserves the gateway hostname and TLS SNI while making the configured hostname resolve to loopback for Claude Code.
 
-This is “VPN-less” only in the sense that it avoids a traditional full-device VPN. The Connectivity Client is still installed software that creates an encrypted tunnel.
+The client still creates an encrypted tunnel and must be installed on the developer's Mac. The design avoids a traditional full-device VPN and broad VPC access; it is not client-free.
 
-## Step-by-step: reproduce the working TCP path
+## Reproduce the ZTNA example: TCP through the Connectivity Client
 
 ### 1. Prepare the AWS environment
 
