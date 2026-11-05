@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500" role="img" aria-labelledby="title desc">
+<title id="title">Claude Code to Amazon Bedrock through AWS Verified Access</title>
+<desc id="desc">Claude Code connects to a local TCP relay, AWS Connectivity Client, Verified Access CIDR endpoint, internal application load balancer, and Claude Apps Gateway. The gateway calls PostgreSQL and Amazon Bedrock through a VPC endpoint.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#52677a"/></marker>
+  <style>
+    .bg{fill:#f5f8fb}.title{font:700 25px Arial,sans-serif;fill:#17324d}.box{fill:#fff;stroke:#52718b;stroke-width:2;rx:14}.aws{fill:#fff7ed;stroke:#e78a16}.local{fill:#edf6ff;stroke:#3d7fb1}.label{font:700 17px Arial,sans-serif;fill:#17324d;text-anchor:middle}.small{font:14px Arial,sans-serif;fill:#40566a;text-anchor:middle}.arrow{stroke:#52677a;stroke-width:3;fill:none;marker-end:url(#arrow)}.note{font:14px Arial,sans-serif;fill:#53687a}.branch{stroke:#52677a;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect class="bg" x="0" y="0" width="1400" height="500" rx="18"/>
+<text class="title" x="42" y="46">Private Claude Apps Gateway with Verified Access</text>
+<text class="note" x="42" y="79">Developer traffic uses an encrypted Connectivity Client tunnel; TLS remains end-to-end to the private ALB.</text>
+<!-- Main path -->
+<rect class="box local" x="40" y="150" width="175" height="125"/>
+<text class="label" x="127" y="195">Claude Code</text><text class="small" x="127" y="222">Developer Mac</text><text class="small" x="127" y="245">hostname → 127.0.0.1</text>
+<rect class="box local" x="245" y="150" width="175" height="125"/>
+<text class="label" x="332" y="195">TCP relay</text><text class="small" x="332" y="222">127.0.0.1:8443</text><text class="small" x="332" y="245">opaque TLS stream</text>
+<rect class="box aws" x="450" y="150" width="175" height="125"/>
+<text class="label" x="537" y="192">AWS Connectivity</text><text class="label" x="537" y="214">Client</text><text class="small" x="537" y="245">encrypted tunnel</text>
+<rect class="box aws" x="655" y="150" width="175" height="125"/>
+<text class="label" x="742" y="192">Verified Access</text><text class="small" x="742" y="220">CIDR TCP endpoint</text><text class="small" x="742" y="245">port 443</text>
+<rect class="box aws" x="860" y="150" width="175" height="125"/>
+<text class="label" x="947" y="192">Internal ALB</text><text class="small" x="947" y="220">HTTPS listener</text><text class="small" x="947" y="245">port 443</text>
+<rect class="box aws" x="1065" y="150" width="175" height="125"/>
+<text class="label" x="1152" y="192">Claude Apps</text><text class="label" x="1152" y="214">Gateway</text><text class="small" x="1152" y="245">ECS Fargate</text>
+<path class="arrow" d="M215 212 H239"/><path class="arrow" d="M420 212 H444"/><path class="arrow" d="M625 212 H649"/><path class="arrow" d="M830 212 H854"/><path class="arrow" d="M1035 212 H1059"/>
+<text class="small" x="742" y="310">TCP service path</text>
+<!-- Gateway backends -->
+<path class="branch" d="M1152 275 V342 H892 V375"/>
+<path class="branch" d="M1152 275 V342 H1170 V375"/>
+<rect class="box" x="800" y="380" width="185" height="78"/>
+<text class="label" x="892" y="413">PostgreSQL</text><text class="small" x="892" y="438">private database</text>
+<rect class="box aws" x="1075" y="380" width="190" height="78"/>
+<text class="label" x="1170" y="413">Amazon Bedrock</text><text class="small" x="1170" y="438">VPC endpoint</text>
+</svg>
